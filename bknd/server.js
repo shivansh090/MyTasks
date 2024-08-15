@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 // MongoDB URI
 
-const db = 'mongodb+srv://shivanshvikramsingh764:<password>@cluster0.65gkk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const db = 'mongodb+srv://shivanshvikramsingh764:XDevs2Y8lPFsUAKP@cluster0.65gkk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 // Connect to MongoDB
 mongoose
