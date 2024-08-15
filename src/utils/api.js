@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://mytasks-bkndss.onrender.com';
 
 export const fetchTasks = () => axios.get(`${API_URL}/tasks`);
 export const fetchTaskById = (id) => axios.get(`${API_URL}/tasks/${id}`);
