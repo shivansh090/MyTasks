@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TaskForm from './Component/TaskForm';
 import { fetchTasks, createTask, deleteTask } from './utils/api'; // Adjust path as necessary
 import { MdDeleteOutline } from "react-icons/md";
-
+import './App.css';
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const [isFormVisible, setFormVisible] = useState(false);
@@ -107,8 +107,8 @@ const App = () => {
         </select>
       </div>
 
-      <div className="flex gap-2 justify-around h-[80vh] pt-6">
-        <div className="flex flex-col gap-y-8 w-[15vw]">
+      <div className=" main flex gap-2 justify-around h-[80vh] pt-6">
+        <div className=" main-top flex flex-col gap-y-8 w-[15vw]">
           {/* Expired Tasks */}
           <div className="bg-gray-200 shadow-xl rounded-2xl p-4 h-[20vh]">
             <div className="flex items-center mb-2">
@@ -147,7 +147,7 @@ const App = () => {
         </div>
 
         {/* To Do */}
-        <div style={{ scrollbarWidth: 'none' }} className="bg-gray-200 shadow-xl rounded-2xl p-4 col-span-1 w-[25vw] overflow-scroll">
+        <div style={{ scrollbarWidth: 'none' }} className="main-2 bg-gray-200 shadow-xl rounded-2xl p-4 col-span-1 w-[25vw] overflow-scroll">
           <div className="flex items-center justify-center gap-3 mb-2">
             <span className="text-blue-500">• To Do</span>
             <span className="rounded-[50px] w-[25px] bg-gray-400 flex justify-center">
@@ -181,7 +181,7 @@ const App = () => {
         </div>
 
         {/* On Progress */}
-        <div style={{ scrollbarWidth: 'none' }} className="bg-gray-200 shadow-xl rounded-2xl p-4 w-[25vw] col-span-1 overflow-scroll">
+        <div style={{ scrollbarWidth: 'none' }} className="main-2 bg-gray-200 shadow-xl rounded-2xl p-4 w-[25vw] col-span-1 overflow-scroll">
           <div className="flex items-center justify-center gap-3 mb-2">
             <span className="text-orange-500">• On Progress</span>
             <span className="rounded-[50px] w-[25px] bg-gray-400 flex justify-center">
@@ -215,7 +215,7 @@ const App = () => {
         </div>
 
         {/* Completed */}
-        <div style={{ scrollbarWidth: 'none' }} className="bg-gray-200 shadow-xl rounded-2xl p-4 w-[25vw] col-span-1 overflow-scroll">
+        <div style={{ scrollbarWidth: 'none' }} className="main-2 bg-gray-200 shadow-xl rounded-2xl p-4 w-[25vw] col-span-1 overflow-scroll">
           <div className="flex items-center justify-center gap-3 mb-2">
             <span className="text-green-500">• Completed</span>
             <span className="rounded-[50px] w-[25px] bg-gray-400 flex justify-center">
