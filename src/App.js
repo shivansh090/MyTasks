@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import TaskForm from './Component/TaskForm';
-import { fetchTasks, createTask, deleteTask } from './utils/api'; // Adjust path as necessary
+import { fetchTasks, createTask, deleteTask, updateTask } from './utils/api'; // Adjust path as necessary
 import { MdDeleteOutline } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
 import './App.css';
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -21,7 +22,19 @@ const App = () => {
       console.error('Error creating task:', error);
     }
   };
-
+  const handleEdit = async (keyid) => {
+    setFormVisible({"_id": keyid, "for": "edit"});
+  }
+  const handleEditsave = async (newTask) => {
+    try {
+      const response = await updateTask(isFormVisible._id, newTask);
+      
+      fetchData(); // Add the new task from the backend response to the tasks array
+      setFormVisible(false);
+    } catch (error) {
+      console.error('Error editing task:', error);
+    }
+  };
   useEffect(() => {
     const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
 
@@ -137,12 +150,12 @@ const App = () => {
           </div>
 
           {/* Add Task Button */}
-          <button onClick={() => setFormVisible(true)} className="bg-blue-500 text-white p-2 rounded">
+          <button onClick={() => setFormVisible({ "for": "add"})} className="bg-blue-500 text-white p-2 rounded">
             + Add Task
           </button>
 
           {isFormVisible && (
-            <TaskForm onSave={handleAddTask} onCancel={() => setFormVisible(false)} />
+            <TaskForm onSave={isFormVisible.for === "add" ? handleAddTask: handleEditsave} onCancel={() => setFormVisible(false)} data={tasks.filter((task)=> task._id == isFormVisible._id)} />
           )}
         </div>
 
@@ -165,12 +178,15 @@ const App = () => {
                 className="bg-white rounded-2xl overflow-scroll flex flex-col relative mb-2 shadow-sm min-h-[20vh] p-[12px]"
               >
                 <div className="flex justify-between">
-                  <div className="font-bold">{task.title}</div>
+                  <div>
                   <div
                     className={`text-xs font-bold uppercase ${task.preference === 'Low' ? 'text-yellow-500' : (task.preference === 'Completed' ? 'text-green-500' : 'text-red-500')} mb-1`}
                   >
                     {task.preference}
                   </div>
+                  <div className="font-bold">{task.title}</div>
+                  </div>
+                  <FaEdit onClick={() => handleEdit(task._id)} className="absolute opacity-60 right-2 top-2" />
                 </div>
 
                 <div className="text-sm text-gray-600">{task.description}</div>
@@ -199,12 +215,15 @@ const App = () => {
                 className="bg-white rounded-2xl overflow-scroll flex flex-col relative mb-2 shadow-sm min-h-[20vh] p-[12px]"
               >
                 <div className="flex justify-between">
-                  <div className="font-bold">{task.title}</div>
+                  <div>
                   <div
                     className={`text-xs font-bold uppercase ${task.preference === 'Low' ? 'text-yellow-500' : (task.preference === 'Completed' ? 'text-green-500' : 'text-red-500')} mb-1`}
                   >
                     {task.preference}
                   </div>
+                  <div className="font-bold">{task.title}</div>
+                  </div>
+                  <FaEdit onClick={() => handleEdit(task._id)} className="absolute  opacity-60 right-2 top-2" />
                 </div>
 
                 <div className="text-sm text-gray-600">{task.description}</div>
@@ -233,12 +252,15 @@ const App = () => {
                 className="bg-white rounded-2xl overflow-scroll flex flex-col relative mb-2 shadow-sm min-h-[20vh] p-[12px]"
               >
                 <div className="flex justify-between">
-                  <div className="font-bold">{task.title}</div>
+                  <div>
                   <div
                     className={`text-xs font-bold uppercase ${task.preference === 'Low' ? 'text-yellow-500' : (task.preference === 'Completed' ? 'text-green-500' : 'text-red-500')} mb-1`}
                   >
                     {task.preference}
                   </div>
+                  <div className="font-bold">{task.title}</div>
+                  </div>
+                  <FaEdit onClick={() => handleEdit(task._id)} className="absolute opacity-60  right-2 top-2" />
                 </div>
 
                 <div className="text-sm text-gray-600">{task.description}</div>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-const TaskForm = ({ onSave, onCancel }) => {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [deadline, setDeadline] = useState('');
-    const [preference, setPreference] = useState('Low');
-    const [status, setStatus] = useState('ToDo');
+const TaskForm = ({ onSave, onCancel ,data = [{}] }) => {
+    const [title, setTitle] = useState('' || data[0]?.title || '');
+    const [description, setDescription] = useState(data[0]?.description || '');
+    const [deadline, setDeadline] = useState(data[0]?.deadline || '');
+    const [preference, setPreference] = useState(data[0]?.preference || '');
+    const [status, setStatus] = useState(data[0]?.status || '');
     const handleSubmit = (e) => {
       e.preventDefault();
       onSave({
