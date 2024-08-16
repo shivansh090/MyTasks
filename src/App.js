@@ -110,7 +110,7 @@ const App = () => {
       <div className=" main flex gap-2 justify-around h-[80vh] pt-6">
         <div className=" main-top flex flex-col gap-y-8 w-[15vw]">
           {/* Expired Tasks */}
-          <div className="bg-gray-200 shadow-xl rounded-2xl p-4 h-[20vh]">
+          <div className="main-1-1 bg-gray-200 shadow-xl rounded-2xl p-4 h-[20vh]">
             <div className="flex items-center mb-2">
               <span className="text-red-500 mr-2">{/* Expired Icon */}</span>
               Expired Tasks
@@ -119,7 +119,7 @@ const App = () => {
           </div>
 
           {/* All Active Tasks */}
-          <div className="bg-gray-200 shadow-xl rounded-2xl p-4 h-[20vh]">
+          <div className="main-1-1 bg-gray-200 shadow-xl rounded-2xl p-4 h-[20vh]">
             <div className="flex items-center mb-2">
               <span className="text-orange-500 mr-2">{/* Active Icon */}</span>
               All Active Tasks
@@ -128,7 +128,7 @@ const App = () => {
           </div>
 
           {/* Completed Tasks */}
-          <div className="bg-gray-200 shadow-xl rounded-2xl p-4 h-[20vh]">
+          <div className="main-1-1 bg-gray-200 shadow-xl rounded-2xl p-4 h-[20vh]">
             <div className="flex items-center mb-2">
               <span className="text-blue-500 mr-2">{/* Completed Icon */}</span>
               Completed Tasks

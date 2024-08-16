@@ -47,7 +47,7 @@
     flex-direction: row-reverse;
     justify-content: space-between;
     width: auto;
-    height: auto;
+    height: 15vh;
   }
   *{
     font-size: small;
@@ -56,5 +56,8 @@
     width: 90vw;
     height: fit-content !important;
     min-height: 40vh;
+  }
+  .main-1-1{
+    height: 14vh;
   }
 }
