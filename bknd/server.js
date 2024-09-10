@@ -63,7 +63,7 @@ app.put('/tasks/:id', async (req, res) => {
 
 app.delete('/tasks/:id', async (req, res) => {
     try{
-        await Task.findOneAndDelete(req.params.id);
+        await Task.findOneAndDelete({_id: req.params.id});
         res.send({ message: 'Task deleted' });
     }catch(err){
         res.status(500).send(err);

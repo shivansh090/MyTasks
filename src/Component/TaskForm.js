@@ -3,8 +3,8 @@ const TaskForm = ({ onSave, onCancel ,data = [{}] }) => {
     const [title, setTitle] = useState('' || data[0]?.title || '');
     const [description, setDescription] = useState(data[0]?.description || '');
     const [deadline, setDeadline] = useState(data[0]?.deadline || '');
-    const [preference, setPreference] = useState(data[0]?.preference || '');
-    const [status, setStatus] = useState(data[0]?.status || '');
+    const [preference, setPreference] = useState(data[0]?.preference || 'Low');
+    const [status, setStatus] = useState(data[0]?.status || 'ToDo');
     const handleSubmit = (e) => {
       e.preventDefault();
       onSave({
